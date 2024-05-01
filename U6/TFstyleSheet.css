@@ -111,17 +111,32 @@ img.c {
   margin-top: 60px;
   border-radius: 12px;
 
-  transition-duration: 0.4s;
+ 
   width: 180px;
   height: 100px;
   border: #FBFBFB;
+
+  --c:  #94c47c; /* the color*/
+
+  box-shadow: 0 0 0 .1em inset var(--c); 
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
 }
 
 .button:hover {
-  background-color: #39A0ED;
-  transform: rotateY(-180deg);
-  /* Green */
+  background-color: #99c885;
+  
   color: white;
+
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
 }
 
 .grid-container {
